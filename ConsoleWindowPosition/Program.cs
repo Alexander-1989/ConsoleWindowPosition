@@ -11,17 +11,16 @@ namespace ConsoleWindowPosition
         {
             Config config = new Config();
             IntPtr thisConsole = NativeMethods.GetConsoleWindow();
+            config.ReadConfig();
 
-            if (config.ReadConfig())
-            {
-                NativeMethods.SetWindowPos(thisConsole,
-                    NativeMethods.HWNDInsertAfter.HWND_TOP,
-                    config.Properties.Location.X,
-                    config.Properties.Location.Y,
-                    config.Properties.Size.Width,
-                    config.Properties.Size.Height,
-                    NativeMethods.SWPFlags.SWP_SHOWWINDOW);
-            }
+            NativeMethods.SetWindowPos(
+                thisConsole,
+                NativeMethods.HWNDInsertAfter.HWND_TOP,
+                config.Properties.Location.X,
+                config.Properties.Location.Y,
+                config.Properties.Size.Width,
+                config.Properties.Size.Height,
+                NativeMethods.SWPFlags.SWP_SHOWWINDOW);
 
             Console.WriteLine("Hello, World!!!");
             Console.ReadKey();

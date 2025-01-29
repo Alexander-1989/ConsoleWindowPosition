@@ -1,17 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Drawing;
 using System.Xml.Serialization;
 
 namespace ConsoleWindowPosition.Service.Serializer
 {
-    [Serializable]
-    public class Properties
-    {
-        public Point Location { get; set; } = new Point();
-        public Size Size { get; set; } = new Size();
-    }
-
     internal class Config
     {
         private const string defaultName = "Config.xml";
